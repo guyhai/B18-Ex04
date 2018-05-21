@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Delegates
 {
-    public class Menu : Option
+   public class Menu : Option
     {
         private List<Option> m_OptionsList;
         private const int k_Back = 0;
@@ -18,8 +18,8 @@ namespace Ex04.Menus.Interfaces
         {
             if (m_OptionsList.Count == 0)
             {
-               // here we initiate the back option
-               //
+                // here we initiate the back option
+                //
 
             }
             i_Option.Identifier = m_OptionsList.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
@@ -29,7 +29,7 @@ namespace Ex04.Menus.Interfaces
 
         internal override void Selected()
         {
-            if(m_OptionsList.Count != 0)
+            if (m_OptionsList.Count != 0)
             {
                 PresentInteractiveMenu();
             }
@@ -42,17 +42,17 @@ namespace Ex04.Menus.Interfaces
         private void PresentInteractiveMenu()
         {
             int input = -1;
-            while(input != k_Back)
+            while (input != k_Back)
             {
                 Console.WriteLine(Title);
                 printOptions();
                 input = readOption();
                 Console.Clear();//clearing console as reqiested
-                if(input != k_Back)
+                if (input != k_Back)
                 {
                     m_OptionsList[input].Selected();
                 }
-                
+
             }
         }
 
@@ -87,4 +87,6 @@ namespace Ex04.Menus.Interfaces
             return i_ToCheck >= i_Min && i_ToCheck <= i_Max;
         }
     }
+
+}
 }
