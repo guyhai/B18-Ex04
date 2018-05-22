@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class Action : Option
+    public class ActionOption : Option
     {
         private IClickable m_Clickable;
         public IClickable Clickable
         {
             get;set;
         }
-        public Action()
+        public ActionOption()
         {
             m_Clickable = null;
         }
@@ -25,7 +25,7 @@ namespace Ex04.Menus.Interfaces
             }
             else
             {
-                Clickable.Clicked();
+                Clickable.Click();
             }
         }
     }

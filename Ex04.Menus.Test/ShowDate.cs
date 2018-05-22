@@ -9,9 +9,10 @@ namespace Ex04.Menus.Test
 {
     public class ShowDate : IClickable
     {
-        public void Clicked()
+        public void Click()
         {
             Console.WriteLine(DateTime.Now.Date.ToString());
+            Console.ReadLine();
         }
     }
 }

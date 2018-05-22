@@ -10,6 +10,7 @@ namespace Ex04.Menus.Delegates
     {
         public string m_Title = "";
         private int m_Identifier = 0;
+        
         internal abstract void Selected();
 
         internal int Identifier
@@ -22,5 +23,6 @@ namespace Ex04.Menus.Delegates
             get { return m_Title; }
             set { m_Title = value; }
         }
+        
     }
 }

@@ -12,24 +12,22 @@ namespace Ex04.Menus.Delegates
         public Menu Menu
         {
             get { return m_MainMenuOptions; }
-            /*set? maybe it is read only this guy? 
-             * anyway we dont need to set it because the list in Menu class is accesible, it is enough to recive it by ref..
-             * i think it can be read only thoughts?*/
+            
         }
 
         public MainMenu()
         {
             m_MainMenuOptions = new Menu();
-            //need to initialize with exit option as 0?
+            
         }
         public void Add(Option i_Option)
         {
             m_MainMenuOptions.Add(i_Option);
             //here i take "back" and change it into "Exit"
-            if (m_MainMenuOptions.m_OptionsList.Count == 2)
-            {
-                m_MainMenuOptions.m_OptionsList[0].Title = "Exit";
-            }
+            if (m_MainMenuOptions.OptionList.Count == 2)
+          {
+              m_MainMenuOptions.OptionList[0].Title = "Exit";
+          }
         }
         public void DisplayMainMenu()
         {

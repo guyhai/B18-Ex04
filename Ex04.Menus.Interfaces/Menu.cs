@@ -14,11 +14,12 @@ namespace Ex04.Menus.Interfaces
         {
             m_OptionsList = new List<Option>();
         }
+       
         public Menu Add(Option i_Option)
         {
             if (m_OptionsList.Count == 0)
             {
-                Option Back = new Action();
+                Option Back = new ActionOption();
                 Back.Title = "Back";
                 Back.Identifier = 0;
                 m_OptionsList.Add(Back); // dont need to worry, Main menu change this to Exit ! 
@@ -46,11 +47,14 @@ namespace Ex04.Menus.Interfaces
             while(input != k_Back)
             {
                 Console.WriteLine(Title);
+                Console.WriteLine();
                 printOptions();
                 input = readOption();
                 Console.Clear();//clearing console as reqiested
+                Console.Clear();
                 if(input != k_Back)
                 {
+                    
                     m_OptionsList[input].Selected();
                 }
                 
@@ -79,7 +83,7 @@ namespace Ex04.Menus.Interfaces
             foreach (Option option in m_OptionsList)
             {
                 Console.WriteLine($"{option.Identifier}. {option.m_Title}");
-                Console.WriteLine();
+                
             }
         }
 
