@@ -8,24 +8,28 @@ namespace Ex04.Menus.Interfaces
 {
     public class ActionOption : Option
     {
-        private IClickable m_Clickable;
         public IClickable Clickable
         {
-            get;set;
+            get; set;
         }
-        public ActionOption()
+        public ActionOption(String i_Title)
         {
-            m_Clickable = null;
+            m_Title = i_Title;
+            
         }
+        public ActionOption(String i_Title, IClickable i_Clickable)
+        {
+            m_Title = i_Title;
+            Clickable = i_Clickable;
+
+        }
+
         internal override void Selected()
         {
-            if(Clickable == null)
-            {
-                Console.WriteLine("Action is not implemented yet!");
-            }
-            else
-            {
+            if(Clickable != null)
+            { 
                 Clickable.Click();
+                Console.Clear();
             }
         }
     }

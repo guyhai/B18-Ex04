@@ -33,7 +33,8 @@ namespace Ex04.Menus.Interfaces
             }
 
         }
-        public void Show()
+         public void DisplayMainMenu()
+
         {
             m_MainMenuOptions.Selected();//also taken care of the case where there is nothing to show here ;)
         }

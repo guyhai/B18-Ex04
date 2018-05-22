@@ -10,7 +10,9 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
+            InterfaceMenu.Start();
             DelegateMenu.Start();
+
         }
     }
 }

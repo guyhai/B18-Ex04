@@ -8,21 +8,35 @@ namespace Ex04.Menus.Interfaces
 {
     public class Menu : Option
     {
-        public List<Option> m_OptionsList { get; set; }
+        public List<Option> m_OptionsList;
         private const int k_Back = 0;
+        public List<Option> OptionList
+        {
+            get { return m_OptionsList; }
+        }
         public Menu()
         {
             m_OptionsList = new List<Option>();
         }
-       
+        public Menu(String i_Title)
+        {
+            m_OptionsList = new List<Option>();
+            Title = i_Title;
+        }
+        public Menu(String i_Title, Option i_Option)
+        {
+            m_OptionsList = new List<Option>();
+            Title = i_Title;
+            Add(i_Option);
+        }
+
         public Menu Add(Option i_Option)
         {
             if (m_OptionsList.Count == 0)
             {
-                Option Back = new ActionOption();
-                Back.Title = "Back";
-                Back.Identifier = 0;
-                m_OptionsList.Add(Back); // dont need to worry, Main menu change this to Exit ! 
+                Option back = new ActionOption("Back");
+                back.Identifier = 0;
+                m_OptionsList.Add(back);//since it is a loop in a loop no need to inplement back
             }
             i_Option.Identifier = m_OptionsList.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
             m_OptionsList.Add(i_Option);
@@ -51,7 +65,7 @@ namespace Ex04.Menus.Interfaces
                 printOptions();
                 input = readOption();
                 Console.Clear();//clearing console as reqiested
-                Console.Clear();
+               
                 if(input != k_Back)
                 {
                     
@@ -66,7 +80,7 @@ namespace Ex04.Menus.Interfaces
             //read integer from the user 
             int input;
             String str;
-            Console.Write($"Choose an Option (number) between [{0},{m_OptionsList.Count}]: ");
+            Console.Write($"Choose an Option (number) between [{0},{m_OptionsList.Count - 1}]: ");
             str = Console.ReadLine();
 
             while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count, input))
