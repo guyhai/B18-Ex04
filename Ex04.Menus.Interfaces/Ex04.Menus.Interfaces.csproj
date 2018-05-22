@@ -35,6 +35,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
+    <Compile Include="IClickable.cs" />
     <Compile Include="Option.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Menu.cs" />

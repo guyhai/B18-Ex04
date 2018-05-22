@@ -18,17 +18,24 @@ namespace Ex04.Menus.Interfaces
         }
         public MainMenu()
         {
+
             m_MainMenuOptions = new Menu();
-            //need to initialize with exit option as 0?
+            m_MainMenuOptions.Title = "Main Menu";
+
         }
         public void Add(Option i_Option)
         {
             m_MainMenuOptions.Add(i_Option);
+            //here i take "back" and change it into "Exit"
+            if (m_MainMenuOptions.m_OptionsList.Count == 2)
+            {
+                m_MainMenuOptions.m_OptionsList[0].Title = "Exit";
+            }
 
         }
-        public void DisplayMainMenu()
+        public void Show()
         {
-            Menu.Selected();//also taken care of the case where there is nothing to show here ;)
+            m_MainMenuOptions.Selected();//also taken care of the case where there is nothing to show here ;)
         }
     }
 }

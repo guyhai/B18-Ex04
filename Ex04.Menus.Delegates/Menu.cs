@@ -8,7 +8,7 @@ namespace Ex04.Menus.Delegates
 {
    public class Menu : Option
     {
-        private List<Option> m_OptionsList;
+        public List<Option> m_OptionsList { get; }
         private const int k_Back = 0;
         public Menu()
         {
@@ -89,4 +89,4 @@ namespace Ex04.Menus.Delegates
     }
 
 }
-}
+

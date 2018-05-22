@@ -8,7 +8,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class Menu : Option
     {
-        private List<Option> m_OptionsList;
+        public List<Option> m_OptionsList { get; set; }
         private const int k_Back = 0;
         public Menu()
         {
@@ -18,9 +18,10 @@ namespace Ex04.Menus.Interfaces
         {
             if (m_OptionsList.Count == 0)
             {
-               // here we initiate the back option
-               //
-
+                Option Back = new Action();
+                Back.Title = "Back";
+                Back.Identifier = 0;
+                m_OptionsList.Add(Back); // dont need to worry, Main menu change this to Exit ! 
             }
             i_Option.Identifier = m_OptionsList.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
             m_OptionsList.Add(i_Option);
