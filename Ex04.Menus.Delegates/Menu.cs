@@ -9,12 +9,12 @@ namespace Ex04.Menus.Delegates
 {
    public class Menu : MenuItem
     {
-        private List<MenuItem> m_OptionsList = new List<MenuItem>();
+        private List<MenuItem> m_MenuItems = new List<MenuItem>();
         private const int k_Back = 0;
 
-        public List<MenuItem> OptionList
+        public List<MenuItem> MenuItems
         {
-            get { return m_OptionsList; }
+            get { return m_MenuItems; }
         }
 
 
@@ -36,22 +36,22 @@ namespace Ex04.Menus.Delegates
 
         public Menu Add(MenuItem i_MenuItem)
         {
-            if (m_OptionsList.Count == 0)
+            if (m_MenuItems.Count == 0)
             {
                 MenuItem back = new ActionMenuItem("Back");
                 back.Identifier = 0;
-                m_OptionsList.Add(back);
+                m_MenuItems.Add(back);
             }
 
-            i_MenuItem.Identifier = m_OptionsList.Count;     //Trivial part you give it serial number starting from 1 and then add it to the list :)
-            m_OptionsList.Add(i_MenuItem);
+            i_MenuItem.Identifier = m_MenuItems.Count;     //Trivial part you give it serial number starting from 1 and then add it to the list :)
+            m_MenuItems.Add(i_MenuItem);
             return this;
         }
 
         internal override void Selected()
         {
 
-            if (m_OptionsList.Count != 0)
+            if (m_MenuItems.Count != 0)
             {
                 PresentInteractiveMenu();
             }
@@ -76,7 +76,7 @@ namespace Ex04.Menus.Delegates
                 Console.Clear();//clearing console as requested
                 if (input != k_Back)
                 {
-                    m_OptionsList[input].Selected();
+                    m_MenuItems[input].Selected();
                 }
 
             }
@@ -98,10 +98,10 @@ namespace Ex04.Menus.Delegates
             //read integer from the user 
             int input;
             String str;
-            Console.Write($"Choose an action (number between [{0},{m_OptionsList.Count-1}]): ");
+            Console.Write($"Choose an action (number between [{0},{m_MenuItems.Count-1}]): ");
             str = Console.ReadLine();
 
-            while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count - 1, input))
+            while (!(int.TryParse(str, out input)) || !inRange(0, m_MenuItems.Count - 1, input))
             {
                 Console.WriteLine("invalid choice, try again:");
                 str = Console.ReadLine();
@@ -112,9 +112,9 @@ namespace Ex04.Menus.Delegates
         private void printOptions()
         {
             //maybe need some more work....
-            foreach (MenuItem option in m_OptionsList)
+            foreach (MenuItem option in m_MenuItems)
             {
-                Console.WriteLine($"{option.Identifier}. {option.m_Title}");
+                Console.WriteLine($"{option.Identifier}. {option.Title}");
             }
         }
 

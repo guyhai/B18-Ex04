@@ -19,7 +19,7 @@ namespace Ex04.Menus.Test
         private static MainMenu create()
         {
             MainMenu returnMenu = new MainMenu();
-            returnMenu.Menu.m_Title = "Main Menu";
+            returnMenu.Menu.Title = "Main Menu";
 
             returnMenu.Add(new Menu("Show Date/Time"));
             List<MenuItem> subMenu = returnMenu.Menu.MenuItems;

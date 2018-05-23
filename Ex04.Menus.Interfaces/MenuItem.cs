@@ -8,7 +8,7 @@ namespace Ex04.Menus.Interfaces
 {
     public abstract class MenuItem
     {
-        public string m_Title = "";
+        private string m_Title = "";
         private int m_Identifier = 0;
         internal abstract void Selected();
 

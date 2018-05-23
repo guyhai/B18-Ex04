@@ -27,9 +27,9 @@ namespace Ex04.Menus.Interfaces
         {
             m_MainMenuOptions.Add(iMenuItem);
             //here i take "back" and change it into "Exit"
-            if (m_MainMenuOptions.m_MenuItems.Count == 2)
+            if (m_MainMenuOptions.MenuItems.Count == 2)
             {
-                m_MainMenuOptions.m_MenuItems[0].Title = "Exit";
+                m_MainMenuOptions.MenuItems[0].Title = "Exit";
             }
 
         }

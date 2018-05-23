@@ -14,12 +14,12 @@ namespace Ex04.Menus.Interfaces
         }
         public ActionMenuItem(String i_Title)
         {
-            m_Title = i_Title;
+            Title = i_Title;
             
         }
         public ActionMenuItem(String i_Title, IClickable iClickable)
         {
-            m_Title = i_Title;
+            Title = i_Title;
             Clickable = iClickable;
 
         }

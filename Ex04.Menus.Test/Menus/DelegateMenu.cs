@@ -18,9 +18,9 @@ namespace Ex04.Menus.Test
         private static MainMenu create()
         {
             MainMenu returnMenu = new MainMenu();
-            returnMenu.Menu.m_Title = "Main Menu";
+            returnMenu.Menu.Title = "Main Menu";
             returnMenu.Add(new Menu("Show Date/Time"));
-            List<MenuItem> subMenu = returnMenu.Menu.OptionList;
+            List<MenuItem> subMenu = returnMenu.Menu.MenuItems;
 
             //Note that though all options implement the clickable iterface, it's not necessary here
             //as we send a pointer to the click function, which can be any other function - user preference.
@@ -29,7 +29,7 @@ namespace Ex04.Menus.Test
             (subMenu[1] as Menu).Add(new ActionMenuItem("Show Date", new ShowDate().Click));
 
             returnMenu.Add(new Menu("Version and Capitals"));
-            subMenu = returnMenu.Menu.OptionList;
+            subMenu = returnMenu.Menu.MenuItems;
             (subMenu[2] as Menu).Add(new ActionMenuItem("Count Capitals", new CountCapitals().Click));
             (subMenu[2] as Menu).Add(new ActionMenuItem("Show Version", new ShowVersion().Click));
 

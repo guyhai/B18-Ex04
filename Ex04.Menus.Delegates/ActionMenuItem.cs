@@ -14,12 +14,12 @@ namespace Ex04.Menus.Delegates
 
         public ActionMenuItem(String i_Title)
         {
-            m_Title = i_Title;
+            Title = i_Title;
         }
 
         public ActionMenuItem(String i_Title, Click i_Click)
         {
-            m_Title = i_Title;
+            Title = i_Title;
             DoClick += i_Click;
         }
         

@@ -8,7 +8,7 @@ namespace Ex04.Menus.Interfaces
 {
     public class Menu : MenuItem
     {
-        public List<MenuItem> m_MenuItems;
+        private List<MenuItem> m_MenuItems;
         private const int k_Back = 0;
 
         public List<MenuItem> MenuItems
@@ -97,7 +97,7 @@ namespace Ex04.Menus.Interfaces
             Console.Write($"Choose an action (number between [{0},{m_MenuItems.Count - 1}]): ");
             str = Console.ReadLine();
 
-            while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count-1, input))
+            while (!(int.TryParse(str, out input)) || !inRange(0, m_MenuItems.Count-1, input))
             {
                 Console.WriteLine("invalid choice, try again:");
                 str = Console.ReadLine();
@@ -110,7 +110,7 @@ namespace Ex04.Menus.Interfaces
             //maybe need some more work....
             foreach (MenuItem option in m_MenuItems)
             {
-                Console.WriteLine($"{option.Identifier}. {option.m_Title}");
+                Console.WriteLine($"{option.Identifier}. {option.Title}");
             }
         }
 
