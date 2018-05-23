@@ -11,6 +11,7 @@ namespace Ex04.Menus.Test
     {
         public void Click()
         {
+            Console.WriteLine("The Current Date:");
             Console.WriteLine(DateTime.Now.Date.ToString());
             Console.ReadLine();
         }

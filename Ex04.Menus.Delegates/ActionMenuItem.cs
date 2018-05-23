@@ -27,8 +27,8 @@ namespace Ex04.Menus.Delegates
         {
             if (DoClick != null)
             {
-                
-                DoClick.Invoke();
+
+                DoClick();
                 Console.Clear();
 
             }
