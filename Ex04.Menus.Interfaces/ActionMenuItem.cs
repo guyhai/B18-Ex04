@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class ActionOption : Option
+    public class ActionMenuItem : MenuItem
     {
         public IClickable Clickable
         {
             get; set;
         }
-        public ActionOption(String i_Title)
+        public ActionMenuItem(String i_Title)
         {
             m_Title = i_Title;
             
         }
-        public ActionOption(String i_Title, IClickable i_Clickable)
+        public ActionMenuItem(String i_Title, IClickable iClickable)
         {
             m_Title = i_Title;
-            Clickable = i_Clickable;
+            Clickable = iClickable;
 
         }
 

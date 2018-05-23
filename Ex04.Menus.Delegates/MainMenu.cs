@@ -20,9 +20,9 @@ namespace Ex04.Menus.Delegates
             m_MainMenuOptions = new Menu();
             
         }
-        public void Add(Option i_Option)
+        public void Add(MenuItem iMenuItem)
         {
-            m_MainMenuOptions.Add(i_Option);
+            m_MainMenuOptions.Add(iMenuItem);
             //here i take "back" and change it into "Exit"
             if (m_MainMenuOptions.OptionList.Count == 2)
           {
@@ -31,7 +31,7 @@ namespace Ex04.Menus.Delegates
         }
         public void DisplayMainMenu()
         {
-            Menu.Selected();//also taken care of the case where there is nothing to show here ;)
+            Menu.Selected();        //also taken care of the case where there is nothing to show here ;)
         }
 
 

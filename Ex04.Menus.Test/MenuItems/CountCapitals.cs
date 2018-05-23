@@ -8,9 +8,10 @@ namespace Ex04.Menus.Test
     {
         public void Click()
         {
+            Console.WriteLine("Write a sentence:");
             string line = Console.ReadLine();
             Console.WriteLine($"There are {CapitalsAmount(line)} capital letters");
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("\nPress any key to continue...");
             Console.ReadLine();
         }
 
