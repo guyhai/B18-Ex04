@@ -20,13 +20,19 @@ namespace Ex04.Menus.Test
         {
             MainMenu returnMenu = new MainMenu();
             returnMenu.Menu.m_Title = "Main Menu";
-            returnMenu.Add(new Menu("Show Date/Time"));
-            List<Option> subMenu = returnMenu.Menu.OptionList;
-            (subMenu[1] as Menu).Add(new ActionOption("Show Time", new ShowTime()));
-            (subMenu[1] as Menu).Add(new ActionOption("Show Date", new ShowDate()));
 
+            returnMenu.Add(new Menu("Show Date/Time"));
+            List<MenuItem> subMenu = returnMenu.Menu.MenuItems;
+            (subMenu[1] as Menu).Add(new ActionMenuItem("Show Time", new ShowTime()));
+            (subMenu[1] as Menu).Add(new ActionMenuItem("Show Date", new ShowDate()));
+
+            returnMenu.Add(new Menu("Version and Capitals"));
+            subMenu = returnMenu.Menu.MenuItems;
+            (subMenu[2] as Menu).Add(new ActionMenuItem("Count Capitals", new CountCapitals()));
+            (subMenu[2] as Menu).Add(new ActionMenuItem("Show Version", new ShowVersion()));
 
             return returnMenu;
         }
     }
-}
+
+ }

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Test
 {
-    public class ShowTime : IClickable
+    public class ShowDate : IClickable
     {
         public void Click()
         {
-            Console.WriteLine(DateTime.Now.TimeOfDay.ToString());
+            Console.WriteLine("The Current Date:");
+            Console.WriteLine(DateTime.Now.Date.ToString());
             Console.ReadLine();
         }
     }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Delegates
 {
-    public abstract class Option
+   public abstract class MenuItem
     {
         public string m_Title = "";
         private int m_Identifier = 0;
+        
         internal abstract void Selected();
 
         internal int Identifier
@@ -19,11 +20,9 @@ namespace Ex04.Menus.Interfaces
         }
         public string Title
         {
-            get { return m_Title ; }
+            get { return m_Title; }
             set { m_Title = value; }
         }
-
-
-
+        
     }
 }

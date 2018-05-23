@@ -1,52 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Ex04.Menus.Delegates
 {
-   public class Menu : Option
+   public class Menu : MenuItem
     {
-        private List<Option> m_OptionsList;
+        private List<MenuItem> m_OptionsList = new List<MenuItem>();
         private const int k_Back = 0;
-       
-            public List<Option> OptionList
+
+        public List<MenuItem> OptionList
         {
             get { return m_OptionsList; }
-            
         }
+
+
         public Menu()
         {
-            m_OptionsList = new List<Option>();
-            
         }
+
         public Menu(String i_Title)
         {
-            m_OptionsList = new List<Option>();
             Title = i_Title;
         }
-        public Menu(String i_Title, Option i_Option)
+
+        public Menu(String i_Title, MenuItem i_MenuItem)
         {
-            m_OptionsList = new List<Option>();
             Title = i_Title;
-            Add(i_Option);
+            Add(i_MenuItem);
         }
-        public Menu Add(Option i_Option)
+
+
+        public Menu Add(MenuItem i_MenuItem)
         {
             if (m_OptionsList.Count == 0)
             {
-                Option back = new ActionOption("Back");
+                MenuItem back = new ActionMenuItem("Back");
                 back.Identifier = 0;
-                m_OptionsList.Add(back);//since it is a loop in a loop no need to inplement back
+                m_OptionsList.Add(back);
             }
-            i_Option.Identifier = m_OptionsList.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
-            m_OptionsList.Add(i_Option);
+
+            i_MenuItem.Identifier = m_OptionsList.Count;     //Trivial part you give it serial number starting from 1 and then add it to the list :)
+            m_OptionsList.Add(i_MenuItem);
             return this;
         }
 
         internal override void Selected()
         {
+
             if (m_OptionsList.Count != 0)
             {
                 PresentInteractiveMenu();
@@ -62,8 +66,12 @@ namespace Ex04.Menus.Delegates
             int input = -1;
             while (input != k_Back)
             {
-                Console.WriteLine(Title + "\n");
+                Console.WriteLine(Title);
+                printUnderLineOf("=");
+                Console.WriteLine();
+
                 printOptions();
+                Console.WriteLine();
                 input = readOption();
                 Console.Clear();//clearing console as requested
                 if (input != k_Back)
@@ -74,12 +82,23 @@ namespace Ex04.Menus.Delegates
             }
         }
 
+        private void printUnderLineOf(string i_ToMultiply)
+        {
+            string toPrint = "";
+            for (int i = 0; i < Title.Length; i++)
+            {
+                toPrint += i_ToMultiply;
+            }
+
+            Console.WriteLine(toPrint);
+        }
+
         private int readOption()
         {
             //read integer from the user 
             int input;
             String str;
-            Console.Write($"Choose an Option (number) between [{0},{m_OptionsList.Count-1}]: ");
+            Console.Write($"Choose an action (number between [{0},{m_OptionsList.Count-1}]): ");
             str = Console.ReadLine();
 
             while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count - 1, input))
@@ -93,10 +112,9 @@ namespace Ex04.Menus.Delegates
         private void printOptions()
         {
             //maybe need some more work....
-            foreach (Option option in m_OptionsList)
+            foreach (MenuItem option in m_OptionsList)
             {
                 Console.WriteLine($"{option.Identifier}. {option.m_Title}");
-                
             }
         }
 

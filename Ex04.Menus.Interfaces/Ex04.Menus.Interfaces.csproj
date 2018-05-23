@@ -35,9 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ActionOption.cs" />
+    <Compile Include="ActionMenuItem.cs" />
     <Compile Include="IClickable.cs" />
-    <Compile Include="Option.cs" />
+    <Compile Include="MenuItem.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Menu.cs" />
   </ItemGroup>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-            public class MainMenu
+    public class MainMenu
     {
         private Menu m_MainMenuOptions;//maybe there is a better name for it.
         public Menu Menu
@@ -23,13 +23,13 @@ namespace Ex04.Menus.Interfaces
             m_MainMenuOptions.Title = "Main Menu";
 
         }
-        public void Add(Option i_Option)
+        public void Add(MenuItem iMenuItem)
         {
-            m_MainMenuOptions.Add(i_Option);
+            m_MainMenuOptions.Add(iMenuItem);
             //here i take "back" and change it into "Exit"
-            if (m_MainMenuOptions.m_OptionsList.Count == 2)
+            if (m_MainMenuOptions.m_MenuItems.Count == 2)
             {
-                m_MainMenuOptions.m_OptionsList[0].Title = "Exit";
+                m_MainMenuOptions.m_MenuItems[0].Title = "Exit";
             }
 
         }

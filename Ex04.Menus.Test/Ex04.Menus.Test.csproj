@@ -45,11 +45,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegateMenu.cs" />
-    <Compile Include="InterfaceMenu.cs" />
+    <Compile Include="MenuItems\CountCapitals.cs" />
+    <Compile Include="Menus\DelegateMenu.cs" />
+    <Compile Include="Menus\InterfaceMenu.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ShowDate.cs" />
-    <Compile Include="ShowTime.cs" />
+    <Compile Include="MenuItems\ShowDate.cs" />
+    <Compile Include="MenuItems\ShowTime.cs" />
+    <Compile Include="MenuItems\ShowVersion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
