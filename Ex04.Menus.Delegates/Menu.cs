@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +11,13 @@ namespace Ex04.Menus.Delegates
     {
         private List<Option> m_OptionsList;
         private const int k_Back = 0;
-       
-            public List<Option> OptionList
+
+        public List<Option> OptionList
         {
             get { return m_OptionsList; }
-            
         }
+
+
         public Menu()
         {
             m_OptionsList = new List<Option>();
@@ -47,6 +49,7 @@ namespace Ex04.Menus.Delegates
 
         internal override void Selected()
         {
+
             if (m_OptionsList.Count != 0)
             {
                 PresentInteractiveMenu();
@@ -62,7 +65,10 @@ namespace Ex04.Menus.Delegates
             int input = -1;
             while (input != k_Back)
             {
-                Console.WriteLine(Title + "\n");
+                Console.WriteLine(Title);
+                printUnderLineOf("=");
+                Console.WriteLine();
+
                 printOptions();
                 input = readOption();
                 Console.Clear();//clearing console as requested
@@ -72,6 +78,17 @@ namespace Ex04.Menus.Delegates
                 }
 
             }
+        }
+
+        private void printUnderLineOf(string toMultiply)
+        {
+            string toPrint = "";
+            for (int i = 0; i < Title.Length; i++)
+            {
+                toPrint += toMultiply;
+            }
+
+            Console.WriteLine(toPrint);
         }
 
         private int readOption()
