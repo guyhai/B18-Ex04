@@ -82,7 +82,7 @@ namespace Ex04.Menus.Delegates
             Console.Write($"Choose an Option (number) between [{0},{m_OptionsList.Count-1}]: ");
             str = Console.ReadLine();
 
-            while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count, input))
+            while (!(int.TryParse(str, out input)) || !inRange(0, m_OptionsList.Count - 1, input))
             {
                 Console.WriteLine("invalid choice, try again:");
                 str = Console.ReadLine();
