@@ -32,7 +32,7 @@ namespace Ex04.Menus.Interfaces
             Add(iMenuItem);
         }
 
-        public Menu Add(MenuItem iMenuItem)
+        public Menu Add(MenuItem i_MenuItem)
         {
             if (m_MenuItems.Count == 0)
             {
@@ -40,8 +40,8 @@ namespace Ex04.Menus.Interfaces
                 back.Identifier = 0;
                 m_MenuItems.Add(back);//since it is a loop in a loop no need to inplement back
             }
-            iMenuItem.Identifier = m_MenuItems.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
-            m_MenuItems.Add(iMenuItem);
+            i_MenuItem.Identifier = m_MenuItems.Count;// trivial part you give it serial number starting from 1 and then add it to the list :)
+            m_MenuItems.Add(i_MenuItem);
             return this;
         }
 
@@ -67,6 +67,7 @@ namespace Ex04.Menus.Interfaces
                 Console.WriteLine();
 
                 printOptions();
+                Console.WriteLine();
                 input = readOption();
                 Console.Clear();//clearing console as requested
                 if (input != k_Back)
@@ -77,12 +78,12 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        private void printUnderLineOf(string toMultiply)
+        private void printUnderLineOf(string i_ToMultiply)
         {
             string toPrint = "";
             for (int i = 0; i < Title.Length; i++)
             {
-                toPrint += toMultiply;
+                toPrint += i_ToMultiply;
             }
 
             Console.WriteLine(toPrint);
@@ -93,7 +94,7 @@ namespace Ex04.Menus.Interfaces
             //read integer from the user 
             int input;
             String str;
-            Console.Write($"Choose an MenuItem (number) between [{0},{m_MenuItems.Count - 1}]: ");
+            Console.Write($"Choose an action (number between [{0},{m_MenuItems.Count - 1}]): ");
             str = Console.ReadLine();
 
             while (!(int.TryParse(str, out input)) || !inRange(0, m_MenuItems.Count, input))
@@ -110,7 +111,6 @@ namespace Ex04.Menus.Interfaces
             foreach (MenuItem option in m_MenuItems)
             {
                 Console.WriteLine($"{option.Identifier}. {option.m_Title}");
-                
             }
         }
 
